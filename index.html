@@ -1,0 +1,26 @@
+<html ng-app>
+<head>
+	<title>Angularjs初步</title>
+	<meta charset="utf-8">
+	 <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+	 <script type="text/javascript">
+	 	function MyController($scope,$timeout){
+	 		var updateClock = function(){
+	 			$scope.clock = new Date();
+	 			$timeout(function(){
+	 				updateClock();
+	 			},1000);
+	 		};
+	 		updateClock();
+	 	};
+	 </script>
+</head>
+<body>
+	  <input type="text" ng-model = "name" placeholder="请输入你的姓名" />
+	  <h1 ng-bind="name">Hello,</h1>
+
+	  <hr>
+	  <h1 ng-controller="MyController">Hello,<span ng-bind="clock"></span></h1>
+	 
+</body>
+</html>
