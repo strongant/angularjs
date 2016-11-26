@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <div ng-app="myApp" ng-controller="ThreedTreeCtrl as vm">
+        <ul ng-if="vm.items">
+            <li ng-repeat="item1 in vm.items | tree">
+                <div ng-click="item1.$foldToggle()">
+                    <span ng-if="item1.$hasChildren()">
+                    <span ng-if="!item1.$isFolded()">-</span>
+                    <span ng-if="item1.$isFolded()">+</span>
+                    </span>
+                    {{ item1.title }}
+                </div>
+
+                <ul ng-if="item1.$hasChildren() && !item1.$isFolded()">
+                    <li ng-repeat="item2 in item1.items">
+                        <div ng-click="item2.$foldToggle()">
+                            <span ng-if="item2.$hasChildren()">
+                    <span ng-if="!item2.$isFolded()">-</span>
+                            <span ng-if="item2.$isFolded()">+</span>
+                            </span>
+                            {{ item2.title }}
+                        </div>
+
+                        <ul ng-if="item2.$hasChildren() && !item2.$isFolded()">
+                            <li ng-repeat="item3 in item2.items">
+                                {{ item3.title }}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+     <script src="js/controller/index.client.controller.js"></script>
+    <script src="js/service/index.client.service.js"></script>
+    <script src="js/filters/index.client.filter.js"></script>
+    
+     
+</body>
+
+</html>
