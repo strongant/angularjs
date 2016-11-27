@@ -2,7 +2,7 @@
 dist
 node_modules
 bower_comments
+angular-tree/bower_components/
 angular-tree/node_modules
-angular-tree/bower_comments
 angular-tree/test
 angular-tree/dist
