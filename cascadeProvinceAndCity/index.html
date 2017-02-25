@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <link data-require="bootstrap@*" data-semver="4.0.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body ng-controller="CascadeController">
+  <div class="row">
+    <div class="col-md-6">
+      <select class="form-control" ng-model="vm.province" ng-options="province.label for province in vm.provinces">
+      </select>
+    </div>
+    <div class="col-md-6">
+      <select class="form-control" ng-model="vm.city" ng-options="city.label for city in vm.province.cities">
+      </select>
+    </div>
+  </div>
+  <div>您选择的是：{{vm.province.label}} - {{vm.city.label}}</div>
+  <script src="//cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="factory.js"></script>
+  <script src="controller.js"></script> 
+</body>
+
+</html>
